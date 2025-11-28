@@ -96,6 +96,11 @@ jobs:
             zip -vr9 "$artifact_name" 'PS3 Disc Dumper.app/' -x '*.DS_Store'
           }
           Write-Output "artifact_name=$artifact_name" >> $env:GITHUB_ENV
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ps3-disc-dumper-binary
+          path: ./distrib/ps3-disc-dumper    
       - name: 'Create or update GitHub release draft'
         if: ${{ inputs.version }}
         uses: ncipollo/release-action@v1
