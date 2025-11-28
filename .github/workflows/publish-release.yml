@@ -15,21 +15,11 @@ jobs:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
         include:
-          - os: windows-latest
-            configuration: Release
-            target: '-windows'
-            rid: win-x64
-            command_extra: ''
           - os: ubuntu-latest
             configuration: Linux
             target: ''
             rid: linux-x64
             command_extra: ''
-          - os: macos-latest
-            configuration: MacOS
-            target: ''
-            rid: 'osx-arm64'
-            command_extra: '-t:BundleApp'
     runs-on: '${{ matrix.os }}'
     env:
       version_full: '${{ github.ref_name }}'
